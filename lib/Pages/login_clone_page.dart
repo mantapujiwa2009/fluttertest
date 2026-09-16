@@ -21,6 +21,11 @@ class LoginClonePage extends StatelessWidget {
       ),
       body: Column(
         children: [
+          Image.asset(
+            'lib/Resource/Spotify-removebg-preview.png',
+            width: 150,
+            height: 150,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
