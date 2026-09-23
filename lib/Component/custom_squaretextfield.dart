@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomSquaretextfield extends StatelessWidget {
   final String hint;
@@ -19,12 +20,13 @@ class CustomSquaretextfield extends StatelessWidget {
     return SizedBox(
       width: 280,
       child: TextField(
+        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         controller: txtController,
         style: TextStyle(
           color: txtColor
         ),
         decoration: InputDecoration(
-          hintText: hint,
+          hint: Text(hint),
           hintStyle: TextStyle(
             color: hintColor
           ),

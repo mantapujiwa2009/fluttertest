@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertest/controllers/calculator_controller.dart';
+import 'package:get/get.dart';
 
 class KalkulatorPage extends StatefulWidget {
-  const new({super.key});
+  KalkulatorPage({super.key});
+
+  final controller = Get.put(CalculatorController());
 
   @override
   State<KalkulatorPage> createState() => _KalkulatorPageState();
@@ -10,6 +14,8 @@ class KalkulatorPage extends StatefulWidget {
 class _KalkulatorPageState extends State<KalkulatorPage> {
   @override
   Widget build(BuildContext context) {
+    TextEditingController txtAngka1 = TextEditingController();
+    TextEditingController txtAngka2 = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         title: Text("Kalkulator"),
@@ -29,6 +35,7 @@ class _KalkulatorPageState extends State<KalkulatorPage> {
                 Container(
                   margin: EdgeInsetsDirectional.only(end: 25),
                   child: TextField(
+                    controller: txtAngka1,
                     decoration: InputDecoration(
                       hint: Text("angka pertama"),         
                       ),
@@ -38,6 +45,7 @@ class _KalkulatorPageState extends State<KalkulatorPage> {
               SizedBox(
                 width: 150.0,
                 child: TextField(
+                  controller: txtAngka2,
                   decoration: InputDecoration(
                     hint: Text("angka kedua")
                   ),
@@ -51,7 +59,11 @@ class _KalkulatorPageState extends State<KalkulatorPage> {
               Container(
                 margin: EdgeInsetsDirectional.only(top: 30),
                 child: ElevatedButton(
-                  onPressed: (){}, child: Text("+")
+                  onPressed: (){
+                    //panggil method tambah di controller
+                    int angka1 = int.parse(txtAngka1.text);
+                    int angka2 = int.parse(txtAngka2.text);
+                  }, child: Text("+")
                 )
               ),
               Container(
@@ -76,7 +88,7 @@ class _KalkulatorPageState extends State<KalkulatorPage> {
           ), 
           Container(
             margin: EdgeInsetsDirectional.only(top: 50),
-            child: Text("Hasil")
+            child: Obx(()=> Text(widget.controller.hasil.toString()))
             ),
             Container(
               margin: EdgeInsetsDirectional.only(top: 30),
