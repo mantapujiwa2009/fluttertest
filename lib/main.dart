@@ -4,6 +4,7 @@ import 'package:fluttertest/kalkulator.dart';
 import 'package:fluttertest/kalkulator_page.dart';
 import 'package:fluttertest/login_clone.dart';
 import 'package:fluttertest/login_page.dart';
+import 'package:fluttertest/routes.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -17,7 +18,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: Kalkulator(),
+      title: "MyLearningApp",
+      initialRoute: Routes.registration,
+      getPages: Routes.pages,
     );
   }
 }

@@ -93,6 +93,7 @@ class LoginClonePage extends StatelessWidget {
             child: Container(
               margin: EdgeInsetsDirectional.only(top: 30),
               child: CustomElevatedbutton(
+              onPressed: (){},
               text: "Log In", 
               backgroundColor: ThemeColor.buttonLogin, 
               foregroundColor: ThemeColor.txtLogin, 
