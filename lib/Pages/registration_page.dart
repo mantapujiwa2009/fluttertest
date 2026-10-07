@@ -4,11 +4,14 @@ import 'package:fluttertest/Component/custom_squaretextfield.dart';
 import 'package:fluttertest/Component/custom_squaretextfieldReg.dart';
 import 'package:fluttertest/Component/custom_squaretextfieldRegNum.dart';
 import 'package:fluttertest/Styles/theme.dart';
+import 'package:fluttertest/controllers/registration_ctr.dart';
 import 'package:fluttertest/routes.dart';
 import 'package:get/get.dart';
 
 class RegistrationPage extends StatelessWidget {
   RegistrationPage({super.key});
+
+  final controller = Get.put(RegistrationCtr());
 
   @override
   Widget build(BuildContext context) {
@@ -116,14 +119,41 @@ class RegistrationPage extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsetsDirectional.only(bottom: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CustomSquaretextfieldreg(hint: "Jenis Kelamin", txtController: txtJenisKelamin, hintColor: ThemeColor.hintColor, borderColor: ThemeColor.primaryText, txtColor: ThemeColor.primaryText)
-              ],
+              margin: EdgeInsetsDirectional.only(bottom: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 200, // Adjust this width to match your custom text field
+                    child: Obx(() => DropdownButtonFormField<String>(
+                      value: controller.selectedGender.value,
+                      icon: Icon(Icons.arrow_drop_down, color: ThemeColor.primaryText),
+                      style: TextStyle(color: ThemeColor.primaryText),
+                      decoration: InputDecoration(
+                        hintText: "Jenis Kelamin",
+                        hintStyle: TextStyle(color: ThemeColor.hintColor),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: ThemeColor.primaryText),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: ThemeColor.primaryText),
+                        ),
+                      ),
+                      items: controller.genderOption.map((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (String? newValue) {
+                        controller.selectedGender.value = newValue;
+                      },
+                    )),
+                  ),
+                ],
+              ),
             ),
-          ),
           CustomElevatedbutton(onPressed: (){
             Get.toNamed(
               Routes.cnfrmRegistration,
