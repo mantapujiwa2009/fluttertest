@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertest/Pages/detailmakanan_page.dart';
 import 'package:fluttertest/controllers/listmakanan_ctr.dart';
 import 'package:get/get.dart';
 
@@ -19,11 +20,16 @@ class ListmakananPage extends StatelessWidget {
             return InkWell(
               onTap: (){
                 //pindah page ke details
+                Get.to(() => DetailmakananPage(), arguments: makanan);
               },
               child: ListTile(
               title: Text(makanan.namaMakanan),
+              leading: Image.network(makanan.fotoMakanan,
+              width: 50,
+              height: 50,
+              fit: BoxFit.cover,),
               subtitle: Text(makanan.hargaMakanan),
-              trailing: Icon(Icons.arrow_back_ios),
+              trailing: Icon(Icons.arrow_circle_right_outlined),
               ),
             );
           },

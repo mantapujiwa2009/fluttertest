@@ -1,4 +1,5 @@
 import 'package:fluttertest/Pages/cnfrmRegistration_page.dart';
+import 'package:fluttertest/Pages/detailmakanan_page.dart';
 import 'package:fluttertest/Pages/listmakanan_page.dart';
 import 'package:fluttertest/Pages/registration_page.dart';
 import 'package:get/get.dart';
@@ -8,10 +9,12 @@ class Routes {
   static const String registration = "/registration";
   static const String cnfrmRegistration = "/cnfrmRegistration";
   static const String listmakanan = "/listmakanan";
+  static const String detailmakanan = "/detailmakanan";
 
   static final pages=[
     GetPage(name: registration, page: ()=> RegistrationPage()),
     GetPage(name: cnfrmRegistration, page: ()=> CnfrmregistrationPage()),
-    GetPage(name: listmakanan, page: ()=> ListmakananPage(),)
+    GetPage(name: listmakanan, page: ()=> ListmakananPage()),
+    GetPage(name: detailmakanan, page: ()=> DetailmakananPage())
   ];
 }
