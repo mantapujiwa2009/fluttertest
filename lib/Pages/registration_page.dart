@@ -15,12 +15,6 @@ class RegistrationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController txtName = TextEditingController();
-    TextEditingController txtEmail = TextEditingController();
-    TextEditingController txtAlamat = TextEditingController();
-    TextEditingController txtNoHP = TextEditingController();
-    TextEditingController txtJenisKelamin = TextEditingController();
-
 
     return Scaffold(
       backgroundColor: ThemeColor.primary,
@@ -47,7 +41,7 @@ class RegistrationPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomSquaretextfieldreg(hint: "Nama", txtController: txtName, hintColor: ThemeColor.hintColor, borderColor: ThemeColor.primaryText, txtColor: ThemeColor.primaryText)
+                CustomSquaretextfieldreg(hint: "Nama", txtController: controller.txtName, hintColor: ThemeColor.hintColor, borderColor: ThemeColor.primaryText, txtColor: ThemeColor.primaryText)
               ],
             ),
           ),
@@ -66,7 +60,7 @@ class RegistrationPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomSquaretextfieldreg(hint: "Email", txtController: txtEmail, hintColor: ThemeColor.hintColor, borderColor: ThemeColor.primaryText, txtColor: ThemeColor.primaryText)
+                CustomSquaretextfieldreg(hint: "Email", txtController: controller.txtEmail, hintColor: ThemeColor.hintColor, borderColor: ThemeColor.primaryText, txtColor: ThemeColor.primaryText)
               ],
             ),
           ),
@@ -85,7 +79,7 @@ class RegistrationPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomSquaretextfieldreg(hint: "Alamat", txtController: txtAlamat, hintColor: ThemeColor.hintColor, borderColor: ThemeColor.primaryText, txtColor: ThemeColor.primaryText)
+                CustomSquaretextfieldreg(hint: "Alamat", txtController: controller.txtAlamat, hintColor: ThemeColor.hintColor, borderColor: ThemeColor.primaryText, txtColor: ThemeColor.primaryText)
               ],
             ),
           ),
@@ -104,7 +98,7 @@ class RegistrationPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomSquaretextfieldregnum(hint: "Nomer HP", txtController: txtNoHP, hintColor: ThemeColor.hintColor, borderColor: ThemeColor.primaryText, txtColor: ThemeColor.primaryText)
+                CustomSquaretextfieldregnum(hint: "Nomer HP", txtController: controller.txtNoHP, hintColor: ThemeColor.hintColor, borderColor: ThemeColor.primaryText, txtColor: ThemeColor.primaryText)
               ],
             ),
           ),
@@ -158,11 +152,11 @@ class RegistrationPage extends StatelessWidget {
             Get.toNamed(
               Routes.cnfrmRegistration,
               arguments: {
-                'name' : txtName.text.toString(),
-                'email' : txtEmail.text.toString(),
-                'alamat' : txtAlamat.text.toString(),
-                'nomer' : txtNoHP.text.toString(),
-                'jenisKelamin' : txtJenisKelamin.text.toString(),
+                'name' : controller.txtName.text.toString(),
+                'email' : controller.txtEmail.text.toString(),
+                'alamat' : controller.txtAlamat.text.toString(),
+                'nomer' : controller.txtNoHP.text.toString(),
+                'jenisKelamin' : controller.selectedGender.value ?? 'Belum dipilih',
               },             
             );
           } , text: "Register", backgroundColor: Colors.white, foregroundColor: Colors.black, textStyle: FontTheme.textFieldTitle)
