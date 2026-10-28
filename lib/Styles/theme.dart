@@ -23,4 +23,10 @@ class FontTheme {
       color: ThemeColor.primaryText,
       fontWeight: FontWeight.bold
     );
+
+    static const TextStyle harga = TextStyle(
+      color: Colors.black,
+      fontSize: 15,
+      fontWeight: FontWeight.bold
+    );
 }

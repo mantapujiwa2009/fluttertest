@@ -156,7 +156,7 @@ class RegistrationPage extends StatelessWidget {
                 'email' : controller.txtEmail.text.toString(),
                 'alamat' : controller.txtAlamat.text.toString(),
                 'nomer' : controller.txtNoHP.text.toString(),
-                'jenisKelamin' : controller.selectedGender.value ?? 'Belum dipilih',
+                'jenisKelamin' : controller.selectedGender.value,
               },             
             );
           } , text: "Register", backgroundColor: Colors.white, foregroundColor: Colors.black, textStyle: FontTheme.textFieldTitle)

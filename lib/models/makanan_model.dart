@@ -3,6 +3,7 @@ class MakananModel {
   String hargaMakanan;
   String detailMakanan;
   String fotoMakanan;
+  String ratingMakanan;
 
-  MakananModel({required this.namaMakanan, required this.hargaMakanan, required this.detailMakanan, required this.fotoMakanan});
+  MakananModel({required this.namaMakanan, required this.hargaMakanan, required this.detailMakanan, required this.fotoMakanan, required this.ratingMakanan});
 }
